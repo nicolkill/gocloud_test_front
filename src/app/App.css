@@ -1,0 +1,19 @@
+.logo {
+    margin-top: 15px;
+    width: 100px;
+}
+.section-full-page {
+    height: 100vh;
+}
+.field {
+    background-color: white !important;
+    border-radius: 5px !important;
+    height: 2.5rem !important;
+    padding-left: 0.5rem !important;
+}
+.label {
+    transform: translateY(-25px) scale(0.8) !important;
+}
+#register-button {
+    width: 100% !important;
+}
