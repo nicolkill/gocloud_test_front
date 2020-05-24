@@ -14,15 +14,10 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/success">
-          <Success/>
-        </Route>
-        <Route path="/">
-          <MainPage/>
-        </Route>
+        <Route path="/success" component={Success} />
+        <Route path="/" component={MainPage} />
       </Switch>
     </BrowserRouter>
-
   );
 }
 

@@ -23,18 +23,24 @@ class MainPage extends Component {
     });
   };
 
-  handleRegister = (event) => {
+  handleRegister = async (event) => {
     const canRequest = Object.keys(this.state).reduce((acc, key) => acc && !!this.state[key], true);
-
     if (!canRequest) return;
 
     event.preventDefault();
 
-    axios.request({
-      method: 'post',
-      url: '/landing/subscriptions',
-      data: this.state,
-    });
+    try {
+      await axios.request({
+        method: 'post',
+        url: '/landing/subscriptions',
+        data: this.state,
+      });
+      this.props.history.push('/success');
+    } catch (err) {
+      if (err.response.status === 409) {
+        this.setState({ hasError: true });
+      }
+    }
   };
 
   render() {
@@ -123,6 +129,11 @@ class MainPage extends Component {
                   </button>
                 </div>
               </div>
+              { this.state.hasError && <div className="row">
+                <div className="col s12 center">
+                  <span className="header col s12 light red-text">Estos datos ya han sido registrados.</span>
+                </div>
+              </div> }
             </form>
           </div>
         </div>

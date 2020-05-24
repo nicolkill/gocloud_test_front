@@ -10,9 +10,9 @@ function Success() {
     <MainBody>
       <div className="container">
         <div className="row center">
+          <h3 className="header center white-text">Listo</h3>
           <Link to="/" className="btn-large waves-effect waves-light teal accent-4">Volver atras</Link>
         </div>
-
       </div>
     </MainBody>
   );
